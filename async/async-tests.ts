@@ -281,7 +281,7 @@ q2.unshift(['task3', 'task4', 'task5'], function (error) {
 
 var filename = '';
 async.auto({
-    get_data: function (callback) { },
+    get_data: function(callback) { callback(null, "some data");},
     make_folder: function (callback) { },
     //arrays with different types are not accepted by TypeScript.
     write_file: ['get_data', 'make_folder', <any>function (callback) {
@@ -289,6 +289,9 @@ async.auto({
     }],
     //arrays with different types are not accepted by TypeScript.
     email_link: ['write_file', <any>function (callback, results) { }]
+},
+function(err, results){
+    console.log("data:" + results.get_data);
 });
 
 

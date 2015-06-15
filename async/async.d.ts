@@ -99,7 +99,7 @@ interface Async {
     waterfall(tasks: Function[], callback?: (err: any, ...arguments: any[]) => void): void;
     queue<T>(worker: AsyncWorker<T>, concurrency: number): AsyncQueue<T>;
     priorityQueue<T>(worker: AsyncWorker<T>, concurrency: number): AsyncPriorityQueue<T>;
-    auto(tasks: any, callback?: AsyncResultArrayCallback<any>): void;
+    auto(tasks: any, callback?: AsyncResultObjectCallback<any>): void;
     iterator(tasks: Function[]): Function;
     apply(fn: Function, ...arguments: any[]): AsyncFunction<any>;
     nextTick(callback: Function): void;
